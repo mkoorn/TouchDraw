@@ -76,6 +76,13 @@ open class TouchDrawView: UIView {
         imageView.frame = rect
     }
 
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.imageView.frame = self.frame
+        redrawStack()
+    }
+    
     /// Imports the stack so that previously exported stack can be used
     open func importStack(_ stack: [Stroke]) {
         // Make sure undo is disabled
